@@ -7,8 +7,8 @@ import com.timmitof.databaseapplication.dao.GenreDao
 import com.timmitof.databaseapplication.entities.Book
 import com.timmitof.databaseapplication.entities.Genre
 
-@Database(entities = [Book::class, Genre::class], version = 3)
+@Database(entities = [Book::class, Genre::class], version = 9, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun bookDao(): BookDao
-    abstract fun GenreDao(): GenreDao
+    abstract fun genreDao(): GenreDao
 }

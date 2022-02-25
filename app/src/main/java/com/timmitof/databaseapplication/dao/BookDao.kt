@@ -11,10 +11,7 @@ interface BookDao {
     fun addBook(vararg book: Book)
 
     @Query("SELECT * FROM Book")
-    fun getAllBooks(): List<Book>
-
-    @Query("INSERT INTO Book (bookName, author) VALUES (:name, :author)")
-    fun add(name: String, author: String)
+    fun getAllBooks(): Array<Book>
 
     @Delete
     fun delBook(book: Book)

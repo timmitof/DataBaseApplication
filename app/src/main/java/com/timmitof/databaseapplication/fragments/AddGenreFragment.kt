@@ -13,21 +13,27 @@ import com.timmitof.databaseapplication.entities.Genre
 
 class AddGenreFragment : Fragment() {
     private var _binding: FragmentAddGenreBinding? = null
-    private val binding = _binding!!
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAddGenreBinding.inflate(inflater, container, false)
-        val db = App.instance?.getDatabase()?.GenreDao()
-
-        binding.saveGenreBtn.setOnClickListener {
-            db?.addGenre(Genre(0, binding.genre.text.toString()))
-            Log.d("Get", "${db?.getAllGenre()}")
-        }
-
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val db = App.instance?.getDatabase()?.genreDao()
+
+        binding.saveGenreBtn.setOnClickListener {
+            val genre = Genre(
+                idGenre = null,
+                name = binding.genreName.text.toString()
+            )
+            db?.addGenre(genre)
+            Log.d("Get", "${db?.getAllGenre()}")
+        }
+    }
 }

@@ -11,12 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DataBaseApplication">
         <activity
-            android:name=".ViewBookActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AddBookActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
